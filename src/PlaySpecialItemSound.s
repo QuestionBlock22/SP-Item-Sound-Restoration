@@ -25,7 +25,7 @@
 # Play original item receive sound
 li r4, 0xE3
 
-# Check if in any state over than the racing state, end the code if true. (Replay Fix)
+# Check if in any state other than the racing state, end the code if true. (Replay Fix)
 lis r11, raceStatePtr@h
 lwz r11, -raceStatePtr@l (r11)
 lwz r0, 0x0b74 (r11)
