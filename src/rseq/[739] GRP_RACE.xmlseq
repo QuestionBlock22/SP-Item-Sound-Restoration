@@ -1,0 +1,14 @@
+// Created by diSEQt
+// Program made by Keta
+// https://github.com/killaketa/diSEQt
+
+// Endian: feff
+// Label Count: 1
+// Label Length: 64
+
+<newtrack name="item_decide_special" dataoffset="271">
+	prg 0
+	cn4 127, 0
+	fin
+</newtrack>
+
