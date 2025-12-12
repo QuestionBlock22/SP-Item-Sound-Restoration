@@ -32,17 +32,11 @@ lwz r0, 0x0b74 (r11)
 cmpwi r0, 0
 bne end
 
-# Subtract the item ID (register 28) value by 18 and store the contents to register 0, then check if register 0 is less than or equal to 10 (18 - 8 = Shock ID (10), 18 - 9 = Star ID (9)). Play special item sound if true.
-subi r0, r28, 18
-cmplwi r0, 10
-ble playSpecialItemSound
-
-# Check if the contents of register 28 is less than or equal to Blue Shell's item ID (0x7), then end the code if true.
-cmplwi r28, 0x7
+# Check if the item ID in register 28 is less than or equal to the Blue Shell and end if true.
+cmpwi r28, 7
 ble end
 
-# Play special item sound (Index 1EA in modified revo_kart.brsar)
-playSpecialItemSound:
+# Play the special item sound (index 1EA in modified revo_kart.brsar).
 li r4, 0x1EA
 
 end:                             # End of function.
