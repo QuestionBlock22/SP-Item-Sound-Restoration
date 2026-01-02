@@ -11,13 +11,21 @@
 .set region, '' # Fill with P, E, J, or K in the quotes to assemble for a particular region.
 
 .if (region == 'P' || region == 'p') # PAL/Europe
-    .set raceStatePtr, 0x809c28d8
+    .set raceStatePtr, 0x28d0    # Raceinfo::spInstance (Upper-half conveniently loaded in register 3. Full value is 809bd730 when subtracted.)
+    .set gameTypePtr, 0x28d8     # Racedata::spInstance (See above for upper-half.)
+
 .elseif (region == 'E' || region == 'e') # NTSC-U/North America
-    .set raceStatePtr, 0x809c7098
+    .set raceStatePtr, 0x7090
+    .set gameTypePtr, 0x7098
+
 .elseif (region == 'J' || region == 'j') # NTSC-J/Japan
-    .set raceStatePtr, 0x809c3878
+    .set raceStatePtr, 0x3870
+    .set gameTypePtr, 0x3878
+
 .elseif (region == 'K' || region == 'k') # NTSC-K/Korea
-    .set raceStatePtr, 0x809b4298
+    .set raceStatePtr, 0x4290
+    .set gameTypePtr, 0x4298
+
 .else
     .err
 .endif
@@ -25,10 +33,15 @@
 # Play original item receive sound
 li r4, 0xE3
 
-# Check if in any state other than the racing state, end the code if true. (Replay Fix)
-lis r11, raceStatePtr@h
-lwz r11, -raceStatePtr@l (r11)
-lwz r0, 0x0b74 (r11)
+# Check if the race is finished.
+lwz r11, -raceStatePtr (r3)
+lwz r0, 0x028 (r11)              # raceinfo->state
+cmpwi r0, 4
+beq end
+
+# Make sure the game type is the racing state.
+lwz r11, -gameTypePtr@l (r3)
+lwz r0, 0x0b74 (r11)             # racedata->racesscenario->settings->gametype
 cmpwi r0, 0
 bne end
 
