@@ -24,3 +24,5 @@ If you want to change the sound or fix bugs, all expanded resources are in the f
 
 ### Credits
 _Ro - "[Play different item receive sound when receiving Shock, Star & Bullet](https://mariokartwii.com/showthread.php?tid=1937)" cheat code used as a base.
+MelgMKW and Brawlboxgaming - [Pulsar](https://www.github.com/MelgMKW/Pulsar), used as a reference.
+Ghidra Project - Function names and symbols.
