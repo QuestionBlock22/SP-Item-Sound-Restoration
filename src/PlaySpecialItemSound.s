@@ -40,7 +40,7 @@ cmpwi r0, 4
 beq end
 
 # Make sure the game type is the racing state.
-lwz r11, -gameTypePtr@l (r3)
+lwz r11, -gameTypePtr (r3)
 lwz r0, 0x0b74 (r11)             # racedata->racesscenario->settings->gametype
 cmpwi r0, 0
 bne end
