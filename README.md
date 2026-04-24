@@ -15,11 +15,10 @@ Mario Kart Wii was the first game in the series to excise the special item sound
 
 If you want to change the sound or fix bugs, all expanded resources are in the following locations in "revo_kart."
 
-	Bank Index: 738 "GRP/RACE"
-	Sequence Index: 739 "GRP/RACE"
-	Sound ID: 1EA in "EXP/SE/RC/ITEM/DECIDE/SPECIAL"
-	Bank: "RACE/UI/SP"
-	Group: "RACE"
+	Bank Index: 688 "GRP/RACE"
+	Sequence Index: 392 "GRP/RACE"
+
+You may only use PyiiASMH to build the final code. See "BUILDING.md" for more information.
 
 
 ### Credits
