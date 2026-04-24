@@ -62,7 +62,7 @@ stw r0, 0x20 (sp)							# Start setting up startInfo. startInfo exclusively uses
 bl storeLabelName
 
 labelName:
-        .asciz "item_decide_special"
+    .asciz "item_decide_special"
 	.align 2
 
 storeLabelName:
