@@ -4,6 +4,8 @@ This is a gecko code that makes the game play a different sound effect (Mario Ka
 
 Mario Kart Wii was the first game in the series to excise the special item sound effect after being used for two games. This mod restores the sound effect using the sound ripped and adjusted from Mario Kart 7 and applies it to all new items (except Thundercloud) and the returning items from Mario Kart DS. The following items are affected by this mod.
 
+What sets this branch apart from the mainline branch is the fact that it now uses the startInfo method discovered by Melg. This allows distribution creators to more easily modify their BRSAR files without having to worry about triggering the offset bug by setting sound IDs. The main drawback to this method is that it sacrifices file-level complexity for code complexity, so now there's an execution cost each time a UI sound effect is played, however small.
+
 * 	Lightning/Shock
 * 	Star
 * 	Golden/Dash Mushroom
