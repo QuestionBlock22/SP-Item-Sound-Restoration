@@ -90,6 +90,6 @@ end:
 lis r12, SoundStartable_detail_StartSound@h
 ori r12, r12, SoundStartable_detail_StartSound@l
 mtctr r12
-bctrl									# Original instruction set
+bctrl										# Original instruction set
 
 popStack
